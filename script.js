@@ -66,23 +66,49 @@ function checked(e){
 
 // 할일 데이터 가져오기
 function getData(){
-    var httpRequest = new XMLHttpRequest()
-    httpRequest.onreadystatechange = responseFunction
-    httpRequest.open('GET', 'https://jsonplaceholder.typicode.com/todos?userId=1', true) // true: 비동기, flase: 동기
-    httpRequest.send()
+    // //es5
+    // var httpRequest = new XMLHttpRequest()
+    // httpRequest.onreadystatechange = responseFunction
+    // httpRequest.open('GET', 'https://jsonplaceholder.typicode.com/todos?userId=1', true) // true: 비동기, flase: 동기
+    // httpRequest.send()
 
-    function responseFunction() {
-        if(httpRequest.readyState === XMLHttpRequest.DONE) {
-            if(httpRequest.status === 200) { // 200: 이상없음 404: 없는주소
-                // alert('이상없음')
-                //JSON.parse : 배열로 바꿔주는 함수
-                data = JSON.parse(httpRequest.responseText) //httpRequest.responseText 이 친구를 data라는 배열로 바꾼 상태
-                for(i=0; i<data.length; i++){
-                    append(data[i])
-                }
-            }else{
-                alert('에러발생')
-            }
+    // function responseFunction() {
+    //     if(httpRequest.readyState === XMLHttpRequest.DONE) {
+    //         if(httpRequest.status === 200) { // 200: 이상없음 404: 없는주소
+    //             // alert('이상없음')
+    //             //JSON.parse : 배열로 바꿔주는 함수
+    //             data = JSON.parse(httpRequest.responseText) //httpRequest.responseText 이 친구를 data라는 배열로 바꾼 상태
+    //             for(i=0; i<data.length; i++){
+    //                 append(data[i])
+    //             }
+    //         }else{
+    //             alert('에러발생')
+    //         }
+    //     }
+    // }
+    // //jquery
+    // $.ajax({
+    //     url: 'url',
+    //     type: 'GET',
+    //     success: function() {
+    //         data = JSON.parse(httpRequest.responseText) //httpRequest.responseText 이 친구를 data라는 배열로 바꾼 상태
+    //         for(i=0; i<data.length; i++){
+    //             append(data[i])
+    //         }
+    //     },
+    //     error: function() {
+    //         alert('에러발생')
+    //     }
+    // })
+
+    //es6 
+    fetch('https://jsonplaceholder.typicode.com/todos?userId=1')
+    .then(res => res.json())
+    .then(jsonData => {
+        data = jsonData
+        for(i=0; i<data.length; i++){
+            append(data[i])
         }
-    }
+    })
+    .catch(err => alert('에러발생'))
 }
