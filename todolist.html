@@ -5,39 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />  <!-- Font Awesome 5 -->
+    
 </head>
 <body>
     <h1>Todo List</h1>
     <div>
         <input type="text" value="">
-        <button onclick="append()">Add</button>
+        <button><i class="fas fa-plus" alt="Add"></i></button>
     </div>
-    <ul id="target">
-        <li id="remove">
-            <input type="checkbox">할일1
-            <button onclick="remove()"><img src="" alt="삭제"></button>
+    <ul>
+       <!-- html 코드가 있으면 안됨 - js로 태그를 만들어줘야함
+            이유) 사용자가 원하는 태그를 만들어주기 위해서 -->
+        <!-- <li>
+            <input type="checkbox" checked>할일1
+            <button><img src="" alt="삭제"></button>
         </li>
-        <li id="remove">
+        <li>
             <input type="checkbox">할일2
-            <button onclick="remove()"><img src="" alt="삭제"></button>
-        </li>
+            <button><img src="" alt="삭제"></button>
+        </li> -->
     </ul>
+    <script src="./script.js"></script>
 </body>
-<script>
-    function append(){
-        var target = document.getElementById('target')
-        var input = document.querySelector('input')
-        var li = document.createElement('li')
-        li.setAttribute('id', "remove")
-
-        li.innerHTML = "<input type='checkbox'>" + input.value + "<button onclick='remove()''><img src='' alt='삭제'></button>"
-        target.appendChild(li)
-    }
-
-    function remove(event){
-        var remove = document.getElementById('remove')
-        remove.parentNode.removeChild(remove)
-            
-        }
-</script>
 </html>
