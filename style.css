@@ -38,12 +38,8 @@ li{
 li button{
     position: absolute;
     top: auto;
-    right: 13px;
+    right: 3px;
 }
-/* input[type=checkbox]{
-    padding-right:10px;
-} */
-li input{
-    padding-right:10px;
+input[type=checkbox]{
+    margin-right:10px;
 }
-
