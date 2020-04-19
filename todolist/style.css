@@ -1,0 +1,45 @@
+*{padding:0; margin:0;}
+a{
+    color:inherit; 
+    text-decoration:none;
+}
+li{
+    list-style:none;
+}
+/*  */
+body{
+    width: 530px;
+    margin:50px auto;
+}
+div{
+    width:100%;
+}
+input[type=text]{ 
+    width: 480px;
+    margin : 10px;
+    display: inline-block; 
+    border : none;
+    border-bottom: 0.8px solid black;
+}
+button{
+    color : rgba(178, 111, 240, 0.781) ;
+    border-radius : 10px;
+    border: none;
+    background-color: rgba(255, 0, 0, 0);
+}
+.completed{
+    color : rgba(178, 111, 240, 0.781) ;
+    text-decoration: line-through;
+}
+li{
+    position:relative;
+    margin : 10px;
+}
+li button{
+    position: absolute;
+    top: auto;
+    right: 3px;
+}
+input[type=checkbox]{
+    margin-right:10px;
+}
